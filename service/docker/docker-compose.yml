@@ -13,6 +13,7 @@ rocketchat:
     # - HTTPS_PROXY=http://proxy.domain.com
   links:
     - mongo:mongo
+  net: ${DOCKER_NETWORK_NAME}
   ports:
     - 3000:3000
   # labels:

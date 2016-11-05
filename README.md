@@ -1,9 +1,20 @@
-# TODO: Must be updated to reflect Rocket.Chat
 
-# Clair Platform Extension Specification
-The purpose of this repository is to define the docker-based [Clair](https://github.com/coreos/clair) platform extension specification.
+# Rocket.Chat Platform Extension Specification
+The purpose of this repository is to define the docker-based [Rocket.Chat](https://rocket.chat/) platform extension specification.
 
-This extention is designed to support cartridges based on the [reference Docker pipeline](https://github.com/Accenture/adop-cartridge-docker).
+This extention is designed to support team chat.
+
+## Status
+ * Support a basic Rocet.Chat load with the mongo backend
+ * Currently it can only be accessed directly on port 3000, more nginx work is needed
+ * ...
+
+### To do 
+ * Test manual LDAP config 
+ * Complete nginx config file.
+ * Get the right hostname (IP) in environment variables during load.
+ * Add LDAP configuration during extension load. Currently it must be done manually after the extension is loaded.
+ * Investigate if HuBot should be added. 
 
 ## Stucture
 A platform specification is broken down into the following sections:

@@ -9,7 +9,7 @@ This extention is designed to support team chat.
  * Currently it can only be accessed directly on port 3000, more nginx work is needed
  * Currently tested in aws instance type
    * Local instance does not seem to work on windows due to docker-compose not being installed in the jenkins container
- * LDAP integration working ([manual setup](#how-to-set-up-ldap-integration-manually)). See below for instructions on how to set it up
+ * LDAP integration working with manual setup ([see below](#how-to-set-up-ldap-integration-manually))
 
 ## To do
  * Complete nginx config file.

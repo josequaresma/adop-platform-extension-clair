@@ -27,6 +27,7 @@ mongo:
    - mongo_db:/data/db
 #    - ./data/dump:/dump
   command: mongod --smallfiles --oplogSize 128
+  net: ${DOCKER_NETWORK_NAME}
   # labels:
     # - "traefik.enable=false"
 

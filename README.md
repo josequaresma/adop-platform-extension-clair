@@ -22,7 +22,7 @@ This extention is designed to support team chat.
  * Use [josequaresma/adop-docker-compose](https://github.com/josequaresma/adop-docker-compose) if you are running it on windows with a username that cointains a dot (".")
 2. Go to the [Load Platform configuration](http://YOUR_PLATFORM_IP/jenkins/job/Load_Platform/configure), change the _Branch Specifier_ field to '\*/feature/support-docker-based-platform-extensions' and press _Save_
 3. Select _Build with Parameters_ on the left side and use Robert's repo 'https://github.com/RobertNorthard/adop-platform-management.git'
-4. Go to the [Load Platform Extension configuration ](http://YOUR_PLATFORM_IP/jenkins/job/Platform_Management/job/Load_Platform_Extension/configure), on the _Execute shell_ code under _Build_ comment out the if block that starts with `if [ ! "${CREDENTIALS}" = "adop-default" ]; then` and press Save
+4. Go to the [Load Platform Extension configuration ](http://YOUR_PLATFORM_IP/jenkins/job/Platform_Management/job/Load_Platform_Extension/configure) and on the _Execute shell_ code under _Build_ comment out the if block that starts with `if [ ! "${CREDENTIALS}" = "adop-default" ]; then`. Then press _Save_
 5. Select _Build with Parameters_ on the left side and use the following values:
  * GIT_URL: 'https://github.com/josequaresma/adop-platform-extension-rocket.chat'
  * GIT_REF: convert-to-rocket.chat

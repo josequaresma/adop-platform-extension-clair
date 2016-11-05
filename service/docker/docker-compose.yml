@@ -1,33 +1,38 @@
-version: '2'
-services:
-  postgres:
-    container_name: clair_postgres
-    restart: always
-    image: postgres:latest
-    networks:
-      - ${DOCKER_NETWORK_NAME}
-    environment:
-      POSTGRES_PASSWORD: password
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+rocketchat:
+  # image: rocketchat/rocket.chat:0.45.0
+  image: rocketchat/rocket.chat:latest
+  volumes:
+    - rocketchat_uploads:/app/uploads
+  environment:
+    - PORT=3000
+    - ROOT_URL=http://192.168.99.101:3000
+    - MONGO_URL=mongodb://mongo:27017/rocketchat
+    - MONGO_OPLOG_URL=mongodb://mongo:27017/local
+    - MAIL_URL=smtp://smtp.email
+    - HTTP_PROXY=http://proxy.domain.com
+    - HTTPS_PROXY=http://proxy.domain.com
+  links:
+    - mongo:mongo
+  ports:
+    - 3000:3000
+  # labels:
+    # - "traefik.backend=rocketchat"
+    # - "traefik.frontend.rule=Host: your.domain.tld"
 
-  clair:
-    container_name: clair_clair
-    build: ./build 
-    restart: always
-    depends_on:
-      - postgres
-    networks:
-      - ${DOCKER_NETWORK_NAME}
-    ports:
-      - "6060-6061:6060-6061"
-    links:
-      - postgres
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp:/tmp
-    command: [-config, /config/config.yaml]
+mongo:
+  image: mongo:3.2
+  volumes:
+   - mongo_db:/data/db
+#    - ./data/dump:/dump
+  command: mongod --smallfiles --oplogSize 128 --replSet rs0
+  # labels:
+    # - "traefik.enable=false"
 
-networks:
-  local_network:
-    external: true
+# mongo-init-replica:
+  # image: mongo:3.2
+  # command: 'mongo mongo/rocketchat --eval "rs.initiate({ _id: ''rs0'', members: [ { _id: 0, host: ''localhost:27017'' } ]})"'
+  # links:
+    # - mongo:mongo
+
+
+

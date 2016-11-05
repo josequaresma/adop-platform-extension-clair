@@ -1,3 +1,5 @@
+# TODO: Must be updated to reflect Rocket.Chat
+
 # Clair Platform Extension Specification
 The purpose of this repository is to define the docker-based [Clair](https://github.com/coreos/clair) platform extension specification.
 

@@ -25,7 +25,7 @@ This extention is designed to support team chat.
 4. Go to the [Load Platform Extension configuration ](http://YOUR_PLATFORM_IP/jenkins/job/Platform_Management/job/Load_Platform_Extension/configure) and on the _Execute shell_ code under _Build_ comment out the if block that starts with `if [ ! "${CREDENTIALS}" = "adop-default" ]; then`. Then press _Save_
 5. Select _Build with Parameters_ on the left side and use the following values:
  * GIT_URL: 'https://github.com/josequaresma/adop-platform-extension-rocket.chat'
- * GIT_REF: convert-to-rocket.chat
+ * GIT_REF: master
  * AWS_CREDENTIALS: 'ADOP LDAP Admin'
 6. Rocket.Chat should now be available on [http://YOUR_PLATFORM_IP:3000](http://YOUR_PLATFORM_IP:3000)
 
